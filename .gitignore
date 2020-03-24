@@ -1,0 +1,3 @@
+#ignore these files
+config.env
+.eslintrc.json
