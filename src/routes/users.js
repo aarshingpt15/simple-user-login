@@ -68,7 +68,7 @@ try {
 
 //other routes
 router.get('/*',(req,res)=>{
-    res.render('error', {error:'Currently we are not serving on this route.Thank You!'})
+    res.status(404).render('error', {error:'Currently we are not serving on this route.Thank You!'})
 })
 
 module.exports  = router
