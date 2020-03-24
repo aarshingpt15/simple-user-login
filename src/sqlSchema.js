@@ -1,3 +1,4 @@
+//setting up connections
 var knex = require('knex')({
     client: 'mysql',
     connection: {
@@ -9,7 +10,7 @@ var knex = require('knex')({
     }
   });
 
-
+//creates table in mysql database
   knex.schema.createTable('users', (table) => {
     table.increments('id')
     table.string('name')

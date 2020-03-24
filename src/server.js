@@ -2,7 +2,7 @@ const express = require('express')
 const userRouter  = require('./routes/users')
 const app = express()
 
-
+//sets ejs view engine
 app.set('view engine','ejs')
 
 // express middleware

@@ -1,3 +1,4 @@
+//importing new files
 const router = require('express').Router()
 const db  = require('../db/db')
 const bodyParser = require('body-parser')
@@ -7,6 +8,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 //user routes
+
+//login routes
 router.get('/login', async (req,res)=>{
     try {
         res.render('login')
@@ -15,7 +18,7 @@ router.get('/login', async (req,res)=>{
     }
 })
 
-
+//signup route
 router.get('/signup', async (req,res)=>{
     try {
         res.render('signup')
@@ -25,6 +28,7 @@ router.get('/signup', async (req,res)=>{
     
 })
 
+//user main page route
 router.get('/me', async(req,res)=>{
     try {
         const userPresent  = await db.findUser(req.query.email)
@@ -46,6 +50,7 @@ router.get('/me', async(req,res)=>{
     }
 })
 
+//users route after signing up
 router.post('/', urlencodedParser, async (req,res)=>{
 try {
     const userPresent  = await db.findUser(req.body.email)
@@ -61,6 +66,7 @@ try {
 }
 })
 
+//other routes
 router.get('/*',(req,res)=>{
     res.render('error', {error:'Currently we are not serving on this route.Thank You!'})
 })

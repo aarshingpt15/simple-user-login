@@ -1,3 +1,4 @@
+//connection to mysql database using knex js library
 var knex = require('knex')({
     client: 'mysql',
     connection: {
@@ -9,10 +10,12 @@ var knex = require('knex')({
     }
   });
 
+  //insert user
 const  postUser = async (newUser) =>{
     return knex('users').insert(newUser)
 }
 
+// gets users using their email
 const findUser = async (email) =>{
    var user = await knex('users').select().where({ email })
    return user
